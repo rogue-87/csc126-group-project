@@ -17,9 +17,12 @@
 #include <cstdlib>
 #include <iostream>
 #include <limits>
+#include <optional>
 #include <ostream>
 #include <string>
 #include <vector>
+using std::nullopt;
+using std::optional;
 using std::string;
 using std::vector;
 
@@ -49,21 +52,18 @@ enum CalculateSubMenu
 //
 enum class Booking
 {
-  None,
   Solo,
   Group,
 };
 
 enum class Environment
 {
-  None,
   Indoors,
   Outdoors,
 };
 
 enum class Mode
 {
-  None,
   Circuit,
   Sprint,
   TimeTrail,
@@ -83,15 +83,15 @@ enum class TrackLayout
 
 struct Track
 {
-  TrackLayout trackLayout;
-  Mode mode;
-  Environment environment;
+  optional<TrackLayout> trackLayout;
+  optional<Mode> mode;
+  optional<Environment> environment;
 
   Track()
   {
-    this->trackLayout = TrackLayout::None;
-    this->mode = Mode::None;
-    this->environment = Environment::None;
+    this->trackLayout = nullopt;
+    this->mode = nullopt;
+    this->environment = nullopt;
   };
 };
 
@@ -100,7 +100,7 @@ struct Driver
   string name;
   int age;
   bool hasLicense;
-  Booking booking;
+  optional<Booking> booking;
   Track track;
 
   // instead of using null, we'll be using default values
@@ -110,7 +110,7 @@ struct Driver
     this->name = "";
     this->age = 0;
     this->hasLicense = false;
-    this->booking = Booking::None;
+    this->booking = nullopt;
     this->track = Track();
   };
 
@@ -314,8 +314,6 @@ string to_string(Booking booking)
 {
   switch (booking)
   {
-    case Booking::None:
-      return "None";
     case Booking::Solo:
       return "Solo";
     case Booking::Group:
@@ -327,8 +325,6 @@ string to_string(Environment env)
 {
   switch (env)
   {
-    case Environment::None:
-      return "None";
     case Environment::Indoors:
       return "Indoors";
     case Environment::Outdoors:
@@ -340,8 +336,6 @@ string to_string(Mode mode)
 {
   switch (mode)
   {
-    case Mode::None:
-      return "None";
     case Mode::Circuit:
       return "Circuit";
     case Mode::Sprint:
