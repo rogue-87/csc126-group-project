@@ -36,3 +36,10 @@
 *.app
 
 # End of https://www.toptal.com/developers/gitignore/api/c++
+
+# Xmake cache
+.xmake/
+build/
+
+# MacOS Cache
+.DS_Store

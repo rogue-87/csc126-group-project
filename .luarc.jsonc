@@ -1,0 +1,19 @@
+{
+	"$schema": "https://raw.githubusercontent.com/LuaLS/vscode-lua/master/setting/schema.json",
+	"diagnostics.globals": [],
+	"runtime": {
+		"version": "Lua 5.3" // version of lua that xmake uses
+	},
+	"workspace": {
+		"checkThirdParty": false,
+		"library": [
+			"~/.config/lua-language-server/LLS-Addons/addons/xmake/module/library/" // to get completions for xmake.lua
+		]
+	},
+	"addonManager": {
+		"enable": true,
+		"repositoryPath": "~/.config/lua-language-server/LLS-Addons/",
+		"repositoryBranch": "main"
+	},
+	"completion.callSnippet": "Replace"
+}
