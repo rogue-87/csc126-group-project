@@ -52,19 +52,19 @@ enum CalculateSubMenu
 //
 enum class Booking
 {
-  Solo,
+  Solo = 1,
   Group,
 };
 
 enum class Environment
 {
-  Indoors,
+  Indoors = 1,
   Outdoors,
 };
 
 enum class Mode
 {
-  Circuit,
+  Circuit = 1,
   Sprint,
   TimeTrail,
   Drag,
@@ -73,8 +73,7 @@ enum class Mode
 
 enum class TrackLayout
 {
-  None,
-  SectionNineCircuit,
+  SectionNineCircuit = 1,
   ChronoPass,
   RushlineDash,
   TorqueStrip,
@@ -353,8 +352,6 @@ string to_string(TrackLayout tl)
 {
   switch (tl)
   {
-    case TrackLayout::None:
-      return "None";
     case TrackLayout::SectionNineCircuit:
       return "SectionNineCircuit";
     case TrackLayout::ChronoPass:
